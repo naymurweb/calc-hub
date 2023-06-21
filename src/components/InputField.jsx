@@ -1,8 +1,11 @@
 import React from 'react';
 
-const InputField = () => {
+const InputField = ({value,handleInputField,name}) => {
     return (
         <input
+        value={value}
+        onChange={handleInputField}
+        name={name}
         type="number"
         placeholder='Enter your value'
         style={{
@@ -13,6 +16,7 @@ const InputField = () => {
           fontSize: "16px",
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         }}
+       
       />
     );
 };
