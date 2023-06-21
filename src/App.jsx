@@ -11,6 +11,7 @@ const App = () => {
   // State management
   const [inputField, setInputField] = useState(defaultField);
   const [result, SetResult] = useState(0);
+  const [historyList, setHistoryList] = useState([]);
 
   // input-field handle
   const handleInputField = (event) => {
@@ -25,6 +26,7 @@ const App = () => {
   // operations handle
   const handleOperation = (operator) => {
     if (inputField.a && inputField.b !== "") {
+      // operations
       const resultHandle = new Function(
         "operator",
         `
@@ -32,6 +34,20 @@ const App = () => {
       );
 
       SetResult(resultHandle());
+
+      // history
+      setHistoryList([
+        ...historyList,
+        {
+          time: new Date().toLocaleTimeString(),
+          date: new Date().toLocaleDateString(),
+          id: Math.random().toString(36).substr(2, 5),
+          ...inputField,
+          operator,
+          result,
+        },
+      ]);
+
       // reset input field'
       setInputField(defaultField);
     } else {
@@ -41,7 +57,7 @@ const App = () => {
   };
   return (
     <div style={{ width: "50%", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "60px", textAlign: "center", color: "#E03B8B" }}>
+      <h1 style={{ fontSize: "60px", textAlign: "center", color: "#2827CC" }}>
         {result}
       </h1>
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -77,7 +93,7 @@ const App = () => {
           Division /
         </Button>
       </div>
-      <History />
+      <History historyList={historyList} />
     </div>
   );
 };
