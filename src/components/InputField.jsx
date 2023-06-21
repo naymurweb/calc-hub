@@ -7,7 +7,7 @@ const InputField = ({value,handleInputField,name}) => {
         onChange={handleInputField}
         name={name}
         type="number"
-        placeholder='Enter your value'
+        placeholder='Enter your number'
         style={{
           width: "300px",
           padding: "10px",

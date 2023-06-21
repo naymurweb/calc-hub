@@ -1,8 +1,9 @@
 import React from "react";
 
-const Button = ({ children }) => {
+const Button = ({ handleOperation,operator, children }) => {
   return (
     <button
+    onClick={()=>handleOperation(operator)}
       style={{
         padding: "10px 20px",
         border: "none",
