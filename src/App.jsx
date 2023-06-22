@@ -10,7 +10,7 @@ const defaultField = {
 const App = () => {
   // State management
   const [inputField, setInputField] = useState(defaultField);
-  const [result, SetResult] = useState(0);
+  const [result, setResult] = useState(0);
   const [historyList, setHistoryList] = useState([]);
   const [restore, setRestore] = useState({});
 
@@ -34,7 +34,7 @@ const App = () => {
       return ${inputField.a} ${operator} ${inputField.b}`
       );
 
-      SetResult(resultHandle);
+      setResult(resultHandle);
 
       // history
       setHistoryList([
@@ -60,7 +60,7 @@ const App = () => {
   // restore button handle
   const handleRestore = (id) => {
     const storeItem = historyList.find((item) => item.id === id);
-    SetResult(storeItem.result);
+    setResult(storeItem.result);
     setInputField({
       a: storeItem.a,
       b: storeItem.b,
