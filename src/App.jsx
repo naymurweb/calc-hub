@@ -33,7 +33,7 @@ const App = () => {
       return ${inputField.a} ${operator} ${inputField.b}`
       );
 
-      SetResult(resultHandle());
+      SetResult(resultHandle);
 
       // history
       setHistoryList([
@@ -42,9 +42,9 @@ const App = () => {
           time: new Date().toLocaleTimeString(),
           date: new Date().toLocaleDateString(),
           id: Math.random().toString(36).substr(2, 5),
+          result: resultHandle(),
           ...inputField,
           operator,
-          result,
         },
       ]);
 
