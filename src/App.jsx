@@ -12,8 +12,7 @@ const App = () => {
   const [inputField, setInputField] = useState(defaultField);
   const [result, SetResult] = useState(0);
   const [historyList, setHistoryList] = useState([]);
-  const [restore,setRestore]=useState({})
-  console.log(restore);
+  const [restore, setRestore] = useState({});
 
   // input-field handle
   const handleInputField = (event) => {
@@ -66,10 +65,9 @@ const App = () => {
       a: storeItem.a,
       b: storeItem.b,
     });
-    console.log('ff');
     setRestore({
-     ...storeItem
-    })
+      ...storeItem,
+    });
   };
   return (
     <div style={{ width: "50%", margin: "0 auto" }}>
@@ -109,7 +107,11 @@ const App = () => {
           Division /
         </Button>
       </div>
-      <History historyList={historyList} handleRestore={handleRestore} restore={restore}  />
+      <History
+        historyList={historyList}
+        handleRestore={handleRestore}
+        restore={restore}
+      />
     </div>
   );
 };

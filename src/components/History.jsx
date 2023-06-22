@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonTwo from "./ButtonTwo";
 
-const History = ({ historyList,handleRestore,restore}) => {
+const History = ({ historyList, handleRestore, restore }) => {
   return (
     <div
       style={{
@@ -42,7 +42,13 @@ const History = ({ historyList,handleRestore,restore}) => {
               <p>Date: {data.date}</p>
             </div>
             <div>
-              <ButtonTwo handleRestore={handleRestore} id={data.id} restore={restore}>@Restore</ButtonTwo>
+              <ButtonTwo
+                handleRestore={handleRestore}
+                id={data.id}
+                restore={restore}
+              >
+                @Restore
+              </ButtonTwo>
             </div>
           </div>
         </div>

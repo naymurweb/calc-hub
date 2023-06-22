@@ -9,9 +9,7 @@ const ButtonTwo = ({ children, handleRestore, id, restore }) => {
         padding: "10px 20px",
         border: "none",
         borderRadius: "5px",
-        // backgroundColor: "#383CC1",
-        backgroundColor: restore.id === id ? '#207398' : '#383CC1',
-
+        backgroundColor: restore.id === id ? "#207398" : "#383CC1",
         color: "#fff",
         fontSize: "16px",
         cursor: "pointer",

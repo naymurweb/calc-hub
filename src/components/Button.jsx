@@ -1,9 +1,9 @@
 import React from "react";
 
-const Button = ({ handleOperation,operator, children }) => {
+const Button = ({ handleOperation, operator, children }) => {
   return (
     <button
-    onClick={()=>handleOperation(operator)}
+      onClick={() => handleOperation(operator)}
       style={{
         padding: "10px 20px",
         border: "none",
@@ -12,7 +12,7 @@ const Button = ({ handleOperation,operator, children }) => {
         color: "#fff",
         fontSize: "16px",
         cursor: "pointer",
-        display:'flex',
+        display: "flex",
       }}
     >
       {children}
