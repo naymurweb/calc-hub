@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import InputField from "./components/InputField";
-import Button from "./components/Button";
-import History from "./components/History";
+
+import InputSection from "./components/input/InputSection";
+import OperationSection from "./components/operations/OperationSection";
+import HistorySection from "./components/history/HistorySection";
+import ResultShow from "./components/result/ResultShow";
 
 const defaultField = {
-  a: "",
-  b: "",
+  a: 0,
+  b: 0,
 };
 const App = () => {
   // State management
   const [inputField, setInputField] = useState(defaultField);
   const [result, setResult] = useState(0);
   const [historyList, setHistoryList] = useState([]);
-  const [restore, setRestore] = useState({});
 
   // input-field handle
   const handleInputField = (event) => {
@@ -65,53 +66,13 @@ const App = () => {
       a: storeItem.a,
       b: storeItem.b,
     });
-    setRestore({
-      ...storeItem,
-    });
   };
   return (
     <div style={{ width: "50%", margin: "0 auto" }}>
-      <h1 style={{ fontSize: "60px", textAlign: "center", color: "#2827CC" }}>
-        {result}
-      </h1>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <InputField
-          name="a"
-          value={inputField.a}
-          handleInputField={handleInputField}
-        />
-        <InputField
-          name="b"
-          value={inputField.b}
-          handleInputField={handleInputField}
-        />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "20px",
-          margin: "40px 0",
-        }}
-      >
-        <Button handleOperation={handleOperation} operator={"+"}>
-          Addition +
-        </Button>
-        <Button handleOperation={handleOperation} operator={"-"}>
-          Subtraction -
-        </Button>
-        <Button handleOperation={handleOperation} operator={"*"}>
-          Multiplication *
-        </Button>
-        <Button handleOperation={handleOperation} operator={"/"}>
-          Division /
-        </Button>
-      </div>
-      <History
-        historyList={historyList}
-        handleRestore={handleRestore}
-        restore={restore}
-      />
+      <ResultShow result={result} />
+      <InputSection value={inputField} handleInputField={handleInputField} />
+      <OperationSection handleOperation={handleOperation} />
+      <HistorySection historyList={historyList} handleRestore={handleRestore} />
     </div>
   );
 };
